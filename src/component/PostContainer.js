@@ -6,7 +6,7 @@ const PostContainer = () => {
   const [postList, setPostList] = useState([]);
   const loadPosts=async()=>{
     const posts = await postService.getAllPosts();
-    setPostList(posts)
+    setPostList(posts.data)
   }
   console.log(postList);
   useEffect(()=>{
@@ -14,7 +14,6 @@ const PostContainer = () => {
   },[])
 
   return (
-    <section >
       <div className=" w-full flex  justify-center items-center">
         <div className="flex flex-wrap justify-center items-center w-full flex-col gap-6">
           {postList.map((postData, i) => (
@@ -22,7 +21,6 @@ const PostContainer = () => {
           ))}
         </div>
       </div>
-    </section>
   );
 };
 export default PostContainer;
