@@ -1,4 +1,7 @@
 import { useRef, useState, useEffect } from "react";
+import authService from "../../service/authService";
+
+
 import {
   faCheck,
   faTimes,
@@ -11,7 +14,6 @@ import { Link } from "react-router-dom";
 
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 // const EMAIL_REGEX = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
-const SIGNIN_URL = "/api/auth/signin";
 
 const Login = () => {
   const userRef = useRef();
@@ -50,15 +52,11 @@ const Login = () => {
     }
 
     const user = { username, password };
-    // console.log(user);
+    console.log(user);
     try {
  
 
-      const response = await axios.post(SIGNIN_URL, JSON.stringify(user), {
-        headers: {
-          "Content-Type": "application/json"
-        }
-     });
+      const response = await authService.loginRequest(user);
       // console.log(response.data);
       const token = response.data.token;
       // console.log(token);

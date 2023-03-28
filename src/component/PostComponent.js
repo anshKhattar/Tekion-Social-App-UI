@@ -1,5 +1,14 @@
 import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
+import postService from "../service/postService";
+
 const PostComponent = ({ postData }) => {
+
+
+  const handleVote = async (type) => {
+    postService.votePost(postData.id,type);
+  }
+  
+
   return (
     <div className="max-w-[370px] p-2 m-4 border border-gray-300 rounded-xl bg-white">
       {postData.contentType === "IMAGE" && (
@@ -30,10 +39,18 @@ const PostComponent = ({ postData }) => {
         <div className="flex-[3] flex justify-around items-center  ">
           
             <div className="cursor-pointer bg-gray-200 rounded-md px-3 py-2">
-              <AiOutlineLike size={"20px"}  />
+              <AiOutlineLike 
+              size={"20px"}  
+              onClick={()=>handleVote("like")}  />
+              <span>{postData.votes.likeCount}</span>
             </div>
             <div className="cursor-pointer bg-gray-200 rounded-md px-3 py-2">
-              <AiOutlineDislike size={"20px"}  />
+              <AiOutlineDislike 
+              size={"20px"}
+              onClick={() => handleVote("dislike")}
+              />
+              <span>{postData.votes.dislikeCount}</span>
+
             </div>
           </div>
         </div>

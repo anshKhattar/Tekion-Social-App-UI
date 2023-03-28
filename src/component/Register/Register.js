@@ -1,4 +1,8 @@
 import { useRef, useState, useEffect } from "react";
+import authService from "../../service/authService";
+
+
+
 import {
   faCheck,
   faTimes,
@@ -12,7 +16,6 @@ import { Link } from "react-router-dom";
 
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const EMAIL_REGEX = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
-const REGISTER_URL = "/api/auth/signup";
 
 const Register = () => {
   const userRef = useRef();
@@ -79,28 +82,13 @@ const Register = () => {
         bodyFormData.append(`${key}`, user[key]);
       }
     }
-    
-    
-    // user.forEach((value, key) => {
-    //   bodyFormData[key] = value;
-    // })
-    // for(i of user){
-    //   bodyFormData.append(i);
-    // }
-    // console.log(user);
+  
     try {
  
 
    
 
-     const response = await axios({
-      method: 'post',
-      url: REGISTER_URL,
-      data: bodyFormData,
-      headers: {
-          'Content-Type': `multipart/form-data; boundary=${bodyFormData._boundary}`,
-      },
-  });
+     const response = authService.signUpRequests(bodyFormData);
 
       console.log(response.data);
       console.log(response.accessToken);
