@@ -6,6 +6,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "../../api/axios";
+import { Link } from "react-router-dom";
 // import "./style.css";
 
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -84,12 +85,12 @@ const Login = () => {
   return (
     <>
       {success ? (
-        <section>
+        <div className="w-full max-w-md min-h-sm flex flex-col justify-start p-2 m-4 rounded-md bg-gray-300">
           <h1>Success! you are signed in</h1>
          
-        </section>
+        </div>
       ) : (
-        <section>
+        <div className="w-full max-w-md min-h-sm flex flex-col justify-start p-2 m-4 rounded-md bg-gray-300">
           <h1>Login</h1>
           <form onSubmit={handleSubmit}>
        
@@ -156,9 +157,12 @@ const Login = () => {
             >
               Sign In
             </button>
+            <div className="w-full flex justify-center items-center">
+          <Link to="/register">Sign up</Link>
+          </div>
           </form>
           
-        </section>
+        </div>
       )}
     </>
   );

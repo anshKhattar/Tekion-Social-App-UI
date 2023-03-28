@@ -13,7 +13,7 @@ html {
 
 
 
-section {
+.form-container {
     width: 100%;
     max-width: 420px;
     min-height: 400px;
@@ -29,10 +29,6 @@ form {
     flex-direction: column;
     flex-grow: 1;
     padding-bottom: 1rem;
-}
-
-a, a:visited {
-    color: #fff;
 }
 
 input[type="text"],

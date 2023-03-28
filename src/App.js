@@ -1,6 +1,6 @@
 import './App.css';
 import Header from './component/Header/app';
-import HomePage from './component/pages/HomePage';
+import HomePage from './pages/HomePage';
 import PostComponent from './component/PostComponent';
 import PostContainer from './component/PostContainer';
 

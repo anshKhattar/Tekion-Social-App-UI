@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "../../api/axios";
 import "./style.css";
 import Login from '../Login/Login';
+import { Link } from "react-router-dom";
 
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const EMAIL_REGEX = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
@@ -128,14 +129,14 @@ const Register = () => {
   return (
     <>
       {success ? (
-        <section>
+        <div className="w-full max-w-md min-h-sm flex flex-col justify-start p-2 m-4 rounded-md bg-gray-300">
           <h1>Success!</h1>
           <p>
             <a href="#">Sign In</a>
           </p>
-        </section>
+        </div>
       ) : (
-        <section>
+        <div className="w-full max-w-md min-h-sm flex flex-col justify-start p-2 m-4 rounded-md bg-gray-300">
           <h1>Register</h1>
           <form onSubmit={handleSubmit}>
             <label htmlFor="name" className=" inline">Name:</label>
@@ -290,9 +291,11 @@ const Register = () => {
             >
               Sign Up
             </button>
+          <div className="w-full flex justify-center items-center">
+          <Link to="/login">Sign In</Link>
+          </div>
           </form>
-         
-        </section>
+        </div>
       )}
     </>
   );
