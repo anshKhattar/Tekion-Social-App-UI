@@ -1,7 +1,8 @@
 import { Navigate } from "react-router-dom";
+import AuthHelper from "../../helpers/AuthHelper";
 
 const WithAuthentication = (Component) => (props) => {
-  const isAuthenticated = localStorage.getItem("token");
+  const isAuthenticated = AuthHelper.isUserLoggedIn();
   if (isAuthenticated) {
     return <Component {...props} />;
   } else {

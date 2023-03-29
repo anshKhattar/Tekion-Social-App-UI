@@ -33,7 +33,6 @@ form {
 
 input[type="text"],
 input[type="password"],
-button,
 textarea {
   font-family: 'Nunito', sans-serif;
   font-size: 22px;
@@ -41,13 +40,8 @@ textarea {
   border-radius: 0.5rem;
 }
 
-label,
-button {
+label {
   margin-top: 1rem;
-}
-
-button {
-  padding: 0.5rem;
 }
 
 .instructions {
