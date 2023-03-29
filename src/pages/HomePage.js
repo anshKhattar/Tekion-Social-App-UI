@@ -1,7 +1,7 @@
 import CreatePost from "../component/CreatePost";
 import Header from "../component/Header/app";
 import PostContainer from "../component/PostContainer";
-import SideBar from "../component/SideBar";
+// import SideBar from "../component/SideBar";
 
 const HomePage = () => {
   return (
@@ -10,11 +10,10 @@ const HomePage = () => {
         <Header />
         <div className="flex items-start justify-center flex-col-reverse sm:flex-row">
           <div className="flex-1">
-        <CreatePost/>
             <PostContainer />
           </div>
           <div className=" py-4 flex-1 sticky">
-            <SideBar />
+            <CreatePost />
           </div>
         </div>
       </div>

@@ -56,6 +56,7 @@ const CreatePost = () => {
 
 
   return (
+    <div className="fixed top-[10em]">
     <form className="w-full max-w-lg" >
       <div className="flex flex-wrap -mx-3 mb-6">
         <div className="w-full px-3">
@@ -86,10 +87,11 @@ const CreatePost = () => {
         </div>
       </div>
 
+<div className="flex justify-center">
       <div className="md:flex md:items-center">
         <div className="md:w-1/3">
           <button
-            className="shadow bg-teal-400 hover:bg-teal-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+            className="shadow bg-teal-400 hover:bg-teal-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded w-[200px]"
             type="submit"
             onClick={handleSaveAsDraft}
           >
@@ -102,7 +104,7 @@ const CreatePost = () => {
       <div className="md:flex md:items-center">
         <div className="md:w-1/3">
           <button
-            className="shadow bg-teal-400 hover:bg-teal-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+            className="shadow bg-teal-400 hover:bg-teal-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded w-[200px] mx-2"
             type="submit"
             onClick={handlePublishPost}
           >
@@ -111,9 +113,10 @@ const CreatePost = () => {
         </div>
         <div className="md:w-2/3"></div>
       </div>
-
+</div>
 
     </form>
+    </div>
   );
 };
 export default CreatePost;
