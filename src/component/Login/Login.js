@@ -8,8 +8,8 @@ import {
   faInfoCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import axios from "../../api/axios";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
+import JWTHelper from "../../helpers/JWTHelper";
 // import "./style.css";
 
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -18,7 +18,7 @@ const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const Login = () => {
   const userRef = useRef();
   const errRef = useRef();
-
+  const navigate = useNavigate();
   const [username, setUserName] = useState("");
   const [userNameFocus, setUserNameFocus] = useState(false);
 
@@ -31,7 +31,16 @@ const Login = () => {
 
   useEffect(() => {
     userRef.current.focus();
+    const token = localStorage.getItem("token");
+    if(token && JWTHelper.isJWTValid(token)){
+        navigate("/")
+    }
   }, []);
+
+  useEffect(()=>{
+    if(success)
+        navigate("/")
+  },[success])
 
 
   useEffect(() => {

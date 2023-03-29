@@ -1,17 +1,14 @@
 import { useRef, useState, useEffect } from "react";
 import authService from "../../service/authService";
 
-
-
 import {
   faCheck,
   faTimes,
   faInfoCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import axios from "../../api/axios";
 import "./style.css";
-import Login from '../Login/Login';
+import Login from "../Login/Login";
 import { Link } from "react-router-dom";
 
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -76,19 +73,15 @@ const Register = () => {
 
     const user = { name, username, email, age, gender, password };
     var bodyFormData = new FormData();
-    
+
     for (const key in user) {
       if (user.hasOwnProperty(key)) {
         bodyFormData.append(`${key}`, user[key]);
       }
     }
-  
+
     try {
- 
-
-   
-
-     const response = authService.signUpRequests(bodyFormData);
+      const response = authService.signUpRequest(bodyFormData);
 
       console.log(response.data);
       console.log(response.accessToken);
@@ -110,7 +103,6 @@ const Register = () => {
       } else {
         setErrMsg("Registration Failed");
       }
-
     }
   };
 
@@ -127,7 +119,9 @@ const Register = () => {
         <div className="w-full max-w-md min-h-sm flex flex-col justify-start p-2 m-4 rounded-md bg-gray-300">
           <h1>Register</h1>
           <form onSubmit={handleSubmit}>
-            <label htmlFor="name" className=" inline">Name:</label>
+            <label htmlFor="name" className=" inline">
+              Name:
+            </label>
             <input
               type="text"
               id="name"
@@ -174,7 +168,6 @@ const Register = () => {
               onFocus={() => setEmailFocus(true)}
               onBlur={() => setEmailFocus(false)}
             />
-          
 
             <label htmlFor="age">Age:</label>
             <input
@@ -226,7 +219,9 @@ const Register = () => {
             />
             <p
               id="passwordnote"
-              className={passwordFocus && !validPassword ? "instructions" : "offscreen"}
+              className={
+                passwordFocus && !validPassword ? "instructions" : "offscreen"
+              }
             >
               <FontAwesomeIcon icon={faInfoCircle} />
               8 to 24 characters.
@@ -275,13 +270,15 @@ const Register = () => {
             </p>
 
             <button
-              disabled={!validEmail || !validPassword || !validMatch ? true : false}
+              disabled={
+                !validEmail || !validPassword || !validMatch ? true : false
+              }
             >
               Sign Up
             </button>
-          <div className="w-full flex justify-center items-center">
-          <Link to="/login">Sign In</Link>
-          </div>
+            <div className="w-full flex justify-center items-center">
+              <Link to="/login">Sign In</Link>
+            </div>
           </form>
         </div>
       )}
