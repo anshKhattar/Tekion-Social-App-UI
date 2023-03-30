@@ -1,18 +1,13 @@
 import jwt_decode from "jwt-decode";
 
-
-
-const fetchDetailsFromJWT = () => {
-  const token = localStorage.getItem("token");
-  if (!token) { return; }
-    const base64Url = token.split('.')[1];
-    const base64 = base64Url.replace('-', '+').replace('_', '/');
-    return JSON.parse(window.atob(base64));
-}
+const fetchDetailsFromJWT = (token) => {
+  let decodedToken = jwt_decode(token);
+  return decodedToken;
+};
 
 const isJWTValid = (token) => {
-  if(!token) return false;
-  let decodedToken = jwt_decode(token);
+  if (!token) return false;
+  let decodedToken = fetchDetailsFromJWT(token);
   let currentDate = new Date();
 
   if (decodedToken.exp * 1000 < currentDate.getTime()) {
@@ -23,5 +18,6 @@ const isJWTValid = (token) => {
 };
 
 export default {
-  isJWTValid, fetchDetailsFromJWT
+  isJWTValid,
+  fetchDetailsFromJWT,
 };

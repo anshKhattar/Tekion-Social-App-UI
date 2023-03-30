@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Header from "../../component/Header/app";
 import UserProfile from "../../component/User/UserProfile";
-import JWTHelper from "../../helpers/JWTHelper";
+import userService from "../../service/userService";
 
 export default function Profile() {
   const [userData, setUserData] = useState();
 
   const updateUserData = () => {
-    const data = JWTHelper.fetchDetailsFromJWT();
+    
+    const data = userService.fetchDetailsFromJWT();
     // console.log(data);
     setUserData(data);
   };
@@ -20,7 +21,7 @@ export default function Profile() {
     <div>
       <Header />
       <div>
-        
+
         <UserProfile userData={userData} />
       </div>
     </div>

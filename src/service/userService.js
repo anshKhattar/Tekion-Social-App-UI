@@ -1,17 +1,10 @@
-import API from "./apiService";
+import JWTHelper from "../helpers/JWTHelper";
 
-const CREATE_POST_URL = "/post/"
 
-const savePostAsDraft = async  (postFormData) =>{
-  const response = await API({
-  method: 'post',
-  url: CREATE_POST_URL,
-  data: postFormData,
-  headers: {
-      'Content-Type': `multipart/form-data; boundary=${postFormData._boundary}`,
-  },
-});
-return response;
+const fetchDetailsFromJWT = () =>{
+  let token = localStorage.getItem("token");
+  const data = JWTHelper.fetchDetailsFromJWT(token);
+  return data;
 };
 
 
@@ -20,5 +13,5 @@ return response;
 
 
 export default {
-  getAllPosts, savePostAsDraft, publishPost, votePost
+  fetchDetailsFromJWT,
 };
