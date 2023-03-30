@@ -3,8 +3,13 @@ import jwt_decode from "jwt-decode";
 
 
 const fetchDetailsFromJWT = () => {
-  
+  const token = localStorage.getItem("token");
+  if (!token) { return; }
+    const base64Url = token.split('.')[1];
+    const base64 = base64Url.replace('-', '+').replace('_', '/');
+    return JSON.parse(window.atob(base64));
 }
+
 const isJWTValid = (token) => {
   if(!token) return false;
   let decodedToken = jwt_decode(token);
@@ -18,5 +23,5 @@ const isJWTValid = (token) => {
 };
 
 export default {
-  isJWTValid,
+  isJWTValid, fetchDetailsFromJWT
 };

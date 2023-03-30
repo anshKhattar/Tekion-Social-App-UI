@@ -1,7 +1,9 @@
 import React from 'react'
 
-export default function UserProfile() {
+export default function UserProfile({userData}) {
+
+  
   return (
-    <div>UserProfile</div>
+    <div></div>
   )
 }

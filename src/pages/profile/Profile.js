@@ -1,22 +1,28 @@
-import React from 'react'
-import Header from '../../component/Header/app'
-import JWTHelper from '../../helpers/JWTHelper'
-
-
-
-
+import React, { useEffect, useState } from "react";
+import Header from "../../component/Header/app";
+import UserProfile from "../../component/User/UserProfile";
+import JWTHelper from "../../helpers/JWTHelper";
 
 export default function Profile() {
+  const [userData, setUserData] = useState();
 
-  const fetchUserDetails = () => {
-     console.log(JWTHelper.getUserDetailsFromJWT());
-  }
-  
+  const updateUserData = () => {
+    const data = JWTHelper.fetchDetailsFromJWT();
+    // console.log(data);
+    setUserData(data);
+  };
+
+  useEffect(() => {
+    updateUserData();
+  }, []);
+
   return (
     <div>
-    <Header/>
-
-
+      <Header />
+      <div>
+        
+        <UserProfile userData={userData} />
+      </div>
     </div>
-  )
+  );
 }

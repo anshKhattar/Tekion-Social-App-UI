@@ -3,20 +3,8 @@ import postService from "../../service/postService";
 import LoadingSpinner from "../LoadingSpinner";
 import PostComponent from "./PostComponent";
 
-const PostContainer = () => {
-  const [postList, setPostList] = useState([]);
-  const [loading, setLoading] = useState(false);
-
-  const loadPosts = async () => {
-    const posts = await postService.getAllPosts();
-    setLoading(false);
-    setPostList(posts.data);
-  };
-
-  useEffect(() => {
-    setLoading(true);
-    loadPosts();
-  }, []);
+const PostContainer = ({postList,loading}) => {
+  
 
   return (
     <>

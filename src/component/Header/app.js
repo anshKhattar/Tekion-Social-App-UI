@@ -11,7 +11,7 @@ export default function Header() {
         <div className=" flex-[3] first:text-3xl font-bold pt-4 text-white text-center cursor-pointer">
           <Link to={"/"}>Tekion Social App</Link>
         </div>
-        <div className="flex-1">
+        <div className="flex-1 text-center">
          {isAuthenticated && <Logout/>}
         </div>
       </div>
