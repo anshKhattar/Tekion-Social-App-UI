@@ -1,5 +1,5 @@
 import { MdAdd } from "react-icons/md";
-import CreatePost from "./CreatePost";
+// import CreatePost from "./CreatePost";
 const SideBarOption = ({ text = "", icon, link }) => {
   return (
     <div className="flex items-center justify-start gap-2 p-2 rounded-md min-w-[200px] bg-gray-300 text-left cursor-pointer">

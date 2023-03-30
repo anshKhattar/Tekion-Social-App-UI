@@ -1,5 +1,10 @@
 import jwt_decode from "jwt-decode";
 
+
+
+const fetchDetailsFromJWT = () => {
+  
+}
 const isJWTValid = (token) => {
   if(!token) return false;
   let decodedToken = jwt_decode(token);
