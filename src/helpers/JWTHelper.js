@@ -1,6 +1,7 @@
 import jwt_decode from "jwt-decode";
 
 const isJWTValid = (token) => {
+  if(!token) return false;
   let decodedToken = jwt_decode(token);
   let currentDate = new Date();
 

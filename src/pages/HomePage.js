@@ -1,6 +1,6 @@
-import CreatePost from "../component/CreatePost";
+import CreatePost from "../component/Post/CreatePost";
 import Header from "../component/Header/app";
-import PostContainer from "../component/PostContainer";
+import PostContainer from "../component/Post/PostContainer";
 // import SideBar from "../component/SideBar";
 
 const HomePage = () => {

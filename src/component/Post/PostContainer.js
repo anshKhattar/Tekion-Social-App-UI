@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import postService from "../service/postService";
-import LoadingSpinner from "./LoadingSpinner";
+import postService from "../../service/postService";
+import LoadingSpinner from "../LoadingSpinner";
 import PostComponent from "./PostComponent";
 
 const PostContainer = () => {
