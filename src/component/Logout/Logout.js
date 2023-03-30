@@ -1,10 +1,11 @@
 import { useNavigate } from "react-router-dom";
+import AuthHelper from "../../helpers/AuthHelper";
 
 const Logout =()=>{
     const navigate = useNavigate();
 
     const logoutHandler = ()=>{
-        localStorage.removeItem("token");
+        AuthHelper.logoutUser();
         navigate("/");
     }
 
