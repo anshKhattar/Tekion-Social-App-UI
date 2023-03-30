@@ -10,6 +10,7 @@ import Header from "./component/Header/app";
 import LoginPage from "./pages/auth/LoginPage";
 import RegisterPage from "./pages/auth/RegisterPage";
 import WithAuthentication from "./component/hocs/WithAuthentication";
+import Profile from "./pages/profile/Profile";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -19,6 +20,7 @@ root.render(
         <Route index Component={WithAuthentication(App)} />
         <Route path="register" Component={RegisterPage} />
         <Route path="login" Component={LoginPage} />
+        <Route path="profile" Component={Profile}/>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

@@ -46,6 +46,8 @@ const Register = () => {
   const [matchFocus, setMatchFocus] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  // const [profilePic,setProfilePic] = useState("");
+
   const [errMsg, setErrMsg] = useState("");
 
   useEffect(() => {
